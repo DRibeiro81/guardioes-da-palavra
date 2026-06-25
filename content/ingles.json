@@ -1,0 +1,248 @@
+[
+  {
+    "id": "en-001",
+    "trilha": "ingles",
+    "habilidade": "EF08LI02",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "READING: Leia o anúncio e responda. What is being announced?",
+    "texto": "GAME NIGHT! Join us this Friday at the School Library. Free snacks, board games and a video game tournament. Starts at 7 p.m. Everyone is welcome!",
+    "alternativas": [
+      "A test on Friday morning",
+      "A game event at the school library",
+      "A new library opening",
+      "A snack shop in the city"
+    ],
+    "resposta": "A game event at the school library",
+    "explicacao": "A ideia central de um texto curto costuma estar no título e na 1ª frase. 'GAME NIGHT!' + 'Join us... at the School Library' = é um evento de jogos na biblioteca. Dica: leia título + primeira linha antes de ir nas alternativas.",
+    "xp": 10
+  },
+  {
+    "id": "en-002",
+    "trilha": "ingles",
+    "habilidade": "EF08LI09",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "SIMPLE PAST: Escolha a forma correta. 'Yesterday I ____ a great movie.'",
+    "alternativas": [
+      "watch",
+      "watched",
+      "have watched",
+      "watching"
+    ],
+    "resposta": "watched",
+    "explicacao": "'Yesterday' marca um tempo terminado no passado, então usamos SIMPLE PAST. Verbos regulares fazem o passado com -ed: watch → watched. Palavras como yesterday, last week, in 2010 pedem simple past.",
+    "xp": 10
+  },
+  {
+    "id": "en-003",
+    "trilha": "ingles",
+    "habilidade": "EF08LI09",
+    "tipo": "completar",
+    "dificuldade": 2,
+    "enunciado": "PRESENT PERFECT: Complete com o verbo correto. 'I ____ (never / eat) sushi before.' Escreva a forma completa (3 palavras).",
+    "resposta": "have never eaten",
+    "explicacao": "Present perfect = have/has + particípio passado, e serve pra experiência de vida sem dizer QUANDO. 'eat' é irregular: eat → ate → eaten. Com 'never', a ordem é: have + never + particípio = 'have never eaten'.",
+    "xp": 15
+  },
+  {
+    "id": "en-004",
+    "trilha": "ingles",
+    "habilidade": "EF08LI09",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "enunciado": "PAST x PRESENT PERFECT: Qual frase está correta?",
+    "alternativas": [
+      "I have visited London last year.",
+      "I visited London last year.",
+      "I visit London last year.",
+      "I has visited London last year."
+    ],
+    "resposta": "I visited London last year.",
+    "explicacao": "Quando o tempo é definido e terminado ('last year'), usa-se SIMPLE PAST: visited. O present perfect ('have visited') NÃO combina com 'last year', porque ele é pra ações sem tempo específico. Regra: tempo marcado no passado → simple past.",
+    "xp": 15
+  },
+  {
+    "id": "en-005",
+    "trilha": "ingles",
+    "habilidade": "EF08LI09",
+    "tipo": "caca-pista",
+    "dificuldade": 2,
+    "enunciado": "Cace a PISTA que prova que a frase está no PRESENT PERFECT. Clique na palavra certa.",
+    "texto": "She has already finished her homework.",
+    "alternativas": [
+      "She",
+      "has",
+      "homework"
+    ],
+    "resposta": "has",
+    "explicacao": "O present perfect se monta com HAVE/HAS + particípio. O 'has' antes de 'finished' é a marca registrada do tempo. Sem o have/has, seria só simple past. Procure sempre o have/has pra identificar o present perfect.",
+    "xp": 15
+  },
+  {
+    "id": "en-006",
+    "trilha": "ingles",
+    "habilidade": "EF08LI11",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "COMPARATIVES: Complete. 'A cheetah is ____ than a turtle.'",
+    "alternativas": [
+      "fast",
+      "faster",
+      "fastest",
+      "more fast"
+    ],
+    "resposta": "faster",
+    "explicacao": "Comparativo de adjetivo CURTO (1 sílaba) = adjetivo + -er + than: fast → faster than. Não se usa 'more' com adjetivos curtos. Sempre que comparar DUAS coisas e tiver 'than', use a forma com -er.",
+    "xp": 10
+  },
+  {
+    "id": "en-007",
+    "trilha": "ingles",
+    "habilidade": "EF08LI11",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "enunciado": "SUPERLATIVES: Complete. 'Mount Everest is ____ mountain in the world.'",
+    "alternativas": [
+      "the highest",
+      "higher",
+      "the most high",
+      "high"
+    ],
+    "resposta": "the highest",
+    "explicacao": "Superlativo = comparar com TODOS (o mais de todos). Adjetivo curto: the + adjetivo + -est: high → the highest. 'in the world' é dica de superlativo. Não se usa 'most' com adjetivo curto, então 'the most high' está errado.",
+    "xp": 15
+  },
+  {
+    "id": "en-008",
+    "trilha": "ingles",
+    "habilidade": "EF08LI11",
+    "tipo": "completar",
+    "dificuldade": 3,
+    "enunciado": "COMPARATIVES (adjetivo longo): Complete. 'This book is ____ (interesting) than that one.' Escreva as 2 palavras.",
+    "resposta": "more interesting",
+    "explicacao": "Adjetivo LONGO (3+ sílabas, como in-te-res-ting) NÃO leva -er. O comparativo é 'more' + adjetivo: more interesting than. Regra: curto → -er; longo → more. 'interestinger' não existe.",
+    "xp": 20
+  },
+  {
+    "id": "en-009",
+    "trilha": "ingles",
+    "habilidade": "EF08LI07",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "MODAL VERBS: Escolha o modal de OBRIGAÇÃO. 'You ____ wear a helmet when you ride a bike.'",
+    "alternativas": [
+      "can",
+      "must",
+      "might",
+      "would"
+    ],
+    "resposta": "must",
+    "explicacao": "'must' expressa OBRIGAÇÃO / necessidade forte (você TEM que fazer). 'can' = habilidade/permissão, 'might' = possibilidade, 'would' = condicional. Para regra de segurança obrigatória, o modal certo é must.",
+    "xp": 10
+  },
+  {
+    "id": "en-010",
+    "trilha": "ingles",
+    "habilidade": "EF08LI07",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "enunciado": "MODAL VERBS: Qual frase pede PERMISSÃO de forma educada?",
+    "alternativas": [
+      "Can I borrow your pen, please?",
+      "I must borrow your pen.",
+      "I borrow your pen.",
+      "Your pen I borrow."
+    ],
+    "resposta": "Can I borrow your pen, please?",
+    "explicacao": "'Can I...?' (ou 'Could I...?', mais formal) é usado pra PEDIR permissão. Depois do modal vem o verbo no infinitivo sem 'to' (borrow). 'must' seria obrigação, não pedido. Modais não levam -s nem 'to' depois.",
+    "xp": 15
+  },
+  {
+    "id": "en-011",
+    "trilha": "ingles",
+    "habilidade": "EF08LI07",
+    "tipo": "caca-pista",
+    "dificuldade": 2,
+    "enunciado": "Cace o erro: clique na palavra que está ERRADA depois do modal verb.",
+    "texto": "She can swims very well.",
+    "alternativas": [
+      "She",
+      "can",
+      "swims"
+    ],
+    "resposta": "swims",
+    "explicacao": "Depois de um modal (can, must, should...) o verbo vem no INFINITIVO sem 'to' e SEM -s, mesmo com he/she/it. O certo é 'She can swim'. Modal nunca aceita verbo conjugado com -s do lado. Por isso 'swims' está errado.",
+    "xp": 15
+  },
+  {
+    "id": "en-012",
+    "trilha": "ingles",
+    "habilidade": "EF08LI05",
+    "tipo": "arrastar",
+    "dificuldade": 2,
+    "enunciado": "Arraste as palavras pra formar a pergunta correta no SIMPLE PAST: (where / did / you / go / ?)",
+    "alternativas": [
+      "Where",
+      "did",
+      "you",
+      "go",
+      "?"
+    ],
+    "resposta": [
+      "Where",
+      "did",
+      "you",
+      "go",
+      "?"
+    ],
+    "explicacao": "Pergunta no simple past = (palavra de pergunta) + DID + sujeito + verbo no infinitivo. Ordem: Where + did + you + go + ? O 'did' já marca o passado, por isso o verbo fica no infinitivo (go, e não went). Estrutura: WH + did + sujeito + verbo base.",
+    "xp": 15
+  },
+  {
+    "id": "en-013",
+    "trilha": "ingles",
+    "habilidade": "EF08LI04",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "VOCABULARY (lugares da cidade): Where do you go to borrow books?",
+    "alternativas": [
+      "the bakery",
+      "the library",
+      "the bank",
+      "the hospital"
+    ],
+    "resposta": "the library",
+    "explicacao": "'library' = biblioteca (lugar de pegar livros emprestados). Cuidado com o falso amigo: 'library' NÃO é livraria — livraria é 'bookstore'. bakery = padaria, bank = banco, hospital = hospital.",
+    "xp": 10
+  },
+  {
+    "id": "en-014",
+    "trilha": "ingles",
+    "habilidade": "EF08LI04",
+    "tipo": "completar",
+    "dificuldade": 3,
+    "enunciado": "VOCABULARY (falso cognato): Complete a tradução. 'Atualmente, eu moro em São Paulo.' = '____, I live in São Paulo.' (Escreva 1 palavra em inglês.)",
+    "resposta": "currently",
+    "explicacao": "'Atualmente' = currently / nowadays. CUIDADO: 'actually' é falso amigo e significa 'na verdade', não 'atualmente'. Esse é um dos erros mais comuns de quem está aprendendo. Atualmente → currently.",
+    "xp": 20
+  },
+  {
+    "id": "en-015",
+    "trilha": "ingles",
+    "habilidade": "EF08LI02",
+    "tipo": "multipla",
+    "dificuldade": 3,
+    "enunciado": "READING (inferência): Leia o diálogo. How does Tom probably feel?",
+    "texto": "Anna: Tom, you got an A+ on the English test! Tom: Really?! I can't believe it! I studied so hard for this!",
+    "alternativas": [
+      "Bored",
+      "Excited and proud",
+      "Angry",
+      "Tired and sad"
+    ],
+    "resposta": "Excited and proud",
+    "explicacao": "Inferir = entender o que NÃO está escrito com todas as letras. Pistas: 'A+', 'I can't believe it!' e 'I studied so hard' mostram surpresa boa e orgulho. Ninguém reage assim entediado ou bravo. Use o tom e a pontuação (!) como pistas do sentimento.",
+    "xp": 20
+  }
+]

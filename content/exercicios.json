@@ -1,0 +1,425 @@
+[
+  {
+    "id": "vb-001",
+    "trilha": "verbos",
+    "habilidade": "EF08LP08",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "Qual frase está na VOZ PASSIVA?",
+    "alternativas": [
+      "O guardião consertou o texto.",
+      "O texto foi consertado pelo guardião.",
+      "O guardião está consertando o texto.",
+      "O guardião conserta o texto todo dia."
+    ],
+    "resposta": "O texto foi consertado pelo guardião.",
+    "explicacao": "Na voz passiva, o sujeito SOFRE a ação. 'O texto foi consertado pelo guardião' = o texto (sujeito) recebeu a ação, e quem fez vem com 'pelo' (agente da passiva). Verbo: ser + particípio (foi consertado).",
+    "xp": 10
+  },
+  {
+    "id": "vb-002",
+    "trilha": "verbos",
+    "habilidade": "EF08LP04",
+    "tipo": "completar",
+    "dificuldade": 1,
+    "enunciado": "Complete na concordância correta: 'Os guardiões ____ (proteger) as palavras.' (presente do indicativo)",
+    "resposta": "protegem",
+    "explicacao": "Sujeito no plural ('os guardiões') exige verbo no plural: protegem. Concordância verbal é o verbo se ajustando ao número e pessoa do sujeito.",
+    "xp": 10
+  },
+  {
+    "id": "vb-003",
+    "trilha": "verbos",
+    "habilidade": "EF08LP08",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "Esta frase está na voz ATIVA ou na voz PASSIVA?\n\n'A streamer venceu a partida no último segundo.'",
+    "alternativas": ["Voz ativa", "Voz passiva"],
+    "resposta": "Voz ativa",
+    "explicacao": "Voz ativa: o sujeito (a streamer) é quem PRATICA a ação (venceu). Dica rápida: se o sujeito faz a ação, é ativa. Aqui a streamer faz; a partida sofre.",
+    "xp": 10
+  },
+  {
+    "id": "vb-004",
+    "trilha": "verbos",
+    "habilidade": "EF08LP08",
+    "tipo": "completar",
+    "dificuldade": 2,
+    "enunciado": "Passe para a VOZ PASSIVA completando a lacuna:\n\nAtiva: 'A galera escolheu o melhor meme.'\nPassiva: 'O melhor meme ____ pela galera.'",
+    "resposta": "foi escolhido",
+    "explicacao": "Pra virar passiva: o objeto (o melhor meme) vira sujeito e usamos SER no mesmo tempo do verbo original + particípio. 'Escolheu' está no passado, então SER vai pro passado: 'foi escolhido'. Quem fazia a ação vira agente: 'pela galera'.",
+    "xp": 15
+  },
+  {
+    "id": "vb-005",
+    "trilha": "verbos",
+    "habilidade": "EF08LP08",
+    "tipo": "completar",
+    "dificuldade": 2,
+    "enunciado": "Passe para a VOZ ATIVA completando a lacuna:\n\nPassiva: 'As fotos foram postadas pelo fotógrafo.'\nAtiva: 'O fotógrafo ____ as fotos.'",
+    "resposta": "postou",
+    "explicacao": "Na volta pra ativa, o agente (o fotógrafo) vira sujeito e some o 'pelo'. O verbo perde o SER e fica num tempo só: 'foram postadas' (passado) vira 'postou'. O sujeito age direto sobre o objeto.",
+    "xp": 15
+  },
+  {
+    "id": "vb-006",
+    "trilha": "verbos",
+    "habilidade": "EF08LP08",
+    "tipo": "multipla",
+    "dificuldade": 3,
+    "enunciado": "Por que um jornal escreveria 'A loja foi assaltada durante a noite' em vez de 'Alguém assaltou a loja durante a noite'? Qual o EFEITO DE SENTIDO?",
+    "alternativas": [
+      "Para dar destaque ao que sofreu a ação e omitir quem fez",
+      "Porque a voz passiva é sempre mais correta que a ativa",
+      "Apenas para deixar a frase mais curta",
+      "Não muda nada, as duas dizem exatamente a mesma coisa"
+    ],
+    "resposta": "Para dar destaque ao que sofreu a ação e omitir quem fez",
+    "explicacao": "Esse é o pulo do gato da voz passiva: ela permite NÃO dizer quem fez (o agente some). O jornal foca na loja (o que aconteceu) sem precisar saber quem assaltou. Por isso manchete adora passiva: 'Aluno é aprovado', 'Recorde é batido'.",
+    "xp": 20
+  },
+  {
+    "id": "vb-007",
+    "trilha": "verbos",
+    "habilidade": "EF08LP08",
+    "tipo": "arrastar",
+    "dificuldade": 2,
+    "enunciado": "Arraste as palavras para montar a versão em VOZ PASSIVA de: 'O time corrigiu o bug.'",
+    "alternativas": ["O bug", "foi", "corrigido", "pelo time"],
+    "resposta": ["O bug", "foi", "corrigido", "pelo time"],
+    "explicacao": "Receita da passiva em ordem: 1) objeto vira sujeito (O bug) → 2) verbo SER no tempo certo (foi) → 3) particípio do verbo principal (corrigido) → 4) agente com 'pelo/pela' (pelo time). Decora essa sequência e você monta qualquer passiva.",
+    "xp": 15
+  },
+  {
+    "id": "vb-008",
+    "trilha": "verbos",
+    "habilidade": "EF08LP08",
+    "tipo": "caca-pista",
+    "dificuldade": 2,
+    "enunciado": "Cace o AGENTE DA PASSIVA (quem realmente praticou a ação). Clique na pista certa:\n\n'O prêmio foi entregue pela diretora aos alunos.'",
+    "texto": "O prêmio foi entregue pela diretora aos alunos.",
+    "alternativas": ["O prêmio", "pela diretora", "aos alunos"],
+    "resposta": "pela diretora",
+    "explicacao": "O agente da passiva é quem DE FATO faz a ação, e vem marcado por 'pela/pelo'. Quem entregou? A diretora. 'O prêmio' é o sujeito que sofre, e 'aos alunos' é só quem recebeu. Procure sempre o 'pela/pelo' pra achar o agente.",
+    "xp": 15
+  },
+  {
+    "id": "vb-009",
+    "trilha": "verbos",
+    "habilidade": "EF08LP04",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "Em que TEMPO está o verbo destacado?\n\n'Amanhã eu JOGAREI o campeonato online.'",
+    "alternativas": ["Presente", "Pretérito (passado)", "Futuro"],
+    "resposta": "Futuro",
+    "explicacao": "'Jogarei' indica algo que ainda vai acontecer — futuro do presente. A palavra 'amanhã' entrega a dica. Truque: presente = agora, pretérito = já passou, futuro = ainda vai rolar.",
+    "xp": 10
+  },
+  {
+    "id": "vb-010",
+    "trilha": "verbos",
+    "habilidade": "EF08LP04",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "enunciado": "Qual frase está no MODO IMPERATIVO (que dá ordem, conselho ou pedido)?",
+    "alternativas": [
+      "Fecha o app e vai estudar agora.",
+      "Eu fecho o app toda noite.",
+      "Se eu fechasse o app, renderia mais.",
+      "Ele fechou o app antes da prova."
+    ],
+    "resposta": "Fecha o app e vai estudar agora.",
+    "explicacao": "O modo imperativo manda, pede ou aconselha ('Fecha', 'vai'). Os outros modos: indicativo afirma um fato ('Eu fecho', 'Ele fechou') e subjuntivo mostra hipótese ('Se eu fechasse'). Imperativo = falar direto com alguém pra agir.",
+    "xp": 15
+  },
+  {
+    "id": "vb-011",
+    "trilha": "verbos",
+    "habilidade": "EF08LP04",
+    "tipo": "multipla",
+    "dificuldade": 3,
+    "enunciado": "Qual MODO verbal aparece em destaque?\n\n'Se eu TIVESSE mais tempo, treinaria todos os dias.'",
+    "alternativas": [
+      "Modo subjuntivo (hipótese/possibilidade)",
+      "Modo indicativo (fato certo)",
+      "Modo imperativo (ordem)",
+      "Não é verbo"
+    ],
+    "resposta": "Modo subjuntivo (hipótese/possibilidade)",
+    "explicacao": "'Tivesse' está no subjuntivo: mostra algo que NÃO é certo, é uma hipótese, um 'se acontecesse'. O subjuntivo costuma vir depois de 'se', 'talvez', 'quando' (futuro), 'espero que'. É o modo do imaginar, não do afirmar.",
+    "xp": 20
+  },
+  {
+    "id": "vb-012",
+    "trilha": "verbos",
+    "habilidade": "EF08LP04",
+    "tipo": "completar",
+    "dificuldade": 2,
+    "enunciado": "Complete com o verbo no PRETÉRITO PERFEITO (ação já concluída no passado):\n\n'Ontem a gente ____ (assistir) a final inteira.'",
+    "resposta": "assistiu",
+    "explicacao": "'A gente' conjuga como 'ele/ela' (3ª pessoa do singular), por isso 'assistiu', e não 'assistimos'. O pretérito perfeito marca ação terminada: começou e acabou ontem. Cuidado com 'a gente': apesar de significar 'nós', o verbo vai no singular.",
+    "xp": 15
+  },
+  {
+    "id": "vb-013",
+    "trilha": "verbos",
+    "habilidade": "EF08LP04",
+    "tipo": "arrastar",
+    "dificuldade": 2,
+    "enunciado": "Arraste os verbos para a ordem CORRETA da linha do tempo: do passado para o futuro.",
+    "alternativas": ["jogarei", "joguei", "jogo"],
+    "resposta": ["joguei", "jogo", "jogarei"],
+    "explicacao": "Linha do tempo dos verbos: passado (joguei — pretérito) → presente (jogo — agora) → futuro (jogarei — ainda vai). Repare como a terminação muda o tempo, mesmo sendo o mesmo verbo 'jogar'.",
+    "xp": 15
+  },
+  {
+    "id": "vb-014",
+    "trilha": "verbos",
+    "habilidade": "EF08LP04",
+    "tipo": "caca-pista",
+    "dificuldade": 3,
+    "enunciado": "Cace o ÚNICO verbo no MODO SUBJUNTIVO da frase. Clique na pista certa:\n\n'Eu quero que você ganhe, mas você treina pouco e desiste rápido.'",
+    "texto": "Eu quero que você ganhe, mas você treina pouco e desiste rápido.",
+    "alternativas": ["quero", "ganhe", "treina", "desiste"],
+    "resposta": "ganhe",
+    "explicacao": "'Ganhe' é subjuntivo: vem depois de 'quero que', expressando desejo/possibilidade, não um fato. Os outros (quero, treina, desiste) são indicativo — afirmam fatos reais. Sempre que aparecer 'que' puxando um desejo, suspeite de subjuntivo.",
+    "xp": 20
+  },
+  {
+    "id": "int-001",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "texto": "A biblioteca da vila estava silenciosa. Mas, toda noite, alguém devolvia os livros fora do lugar. Ninguém via quem. Até que Bia decidiu ficar acordada e descobriu: era o vento entrando pela janela quebrada.",
+    "enunciado": "Qual é a IDEIA CENTRAL do texto?",
+    "alternativas": [
+      "Bia gostava de ler à noite.",
+      "Um mistério na biblioteca tinha uma explicação simples.",
+      "A vila não tinha bibliotecário.",
+      "Os livros eram velhos e caíam sozinhos."
+    ],
+    "resposta": "Um mistério na biblioteca tinha uma explicação simples.",
+    "explicacao": "A ideia central é o fio que sustenta o texto inteiro: havia um mistério (livros fora do lugar) que se resolve com uma causa banal (o vento). As outras opções são detalhes ou suposições não confirmadas.",
+    "xp": 12
+  },
+  {
+    "id": "int-002",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "texto": "Dormir bem é tão importante quanto treinar. Quando você dorme, o cérebro organiza o que aprendeu no dia e o corpo se recupera. Atletas que dormem menos de seis horas erram mais e se machucam com mais facilidade.",
+    "enunciado": "Qual é a IDEIA CENTRAL do texto?",
+    "alternativas": [
+      "Dormir bem é essencial para aprender e ter bom desempenho.",
+      "Atletas profissionais ganham muito dinheiro.",
+      "Treinar é a única coisa que importa no esporte.",
+      "O cérebro não funciona de noite."
+    ],
+    "resposta": "Dormir bem é essencial para aprender e ter bom desempenho.",
+    "explicacao": "A ideia central é o assunto que segura o texto inteiro — aparece do começo ao fim. Aqui tudo gira em torno de UM ponto: dormir bem ajuda corpo e cérebro. As outras opções são detalhes soltos ou nem aparecem. Pergunte: 'sobre o que isso fala o tempo todo?'.",
+    "xp": 10
+  },
+  {
+    "id": "int-003",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "texto": "Lucas olhou o celular, viu a hora e saiu correndo sem tomar café. Pegou a mochila pela metade aberta e bateu a porta. No ônibus, percebeu que tinha esquecido o trabalho em cima da cama.",
+    "enunciado": "INFERÊNCIA: o que dá pra concluir, mesmo sem estar escrito com todas as letras?",
+    "alternativas": [
+      "Lucas estava atrasado e com pressa.",
+      "Lucas odeia tomar café de manhã.",
+      "Lucas mora sozinho há muitos anos.",
+      "Lucas ia viajar de férias."
+    ],
+    "resposta": "Lucas estava atrasado e com pressa.",
+    "explicacao": "Inferir é ler nas entrelinhas: o texto não diz 'ele estava atrasado', mas mostra PISTAS — viu a hora, saiu correndo, não tomou café, esqueceu o trabalho. Junte as pistas e chega na conclusão. As outras opções inventam coisas que nenhuma pista sustenta.",
+    "xp": 15
+  },
+  {
+    "id": "int-004",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "texto": "'Ah, claro. Mais uma prova surpresa. Adoro quando isso acontece. Melhor dia da minha vida, sério.'",
+    "enunciado": "INFERÊNCIA: pelo jeito que a mensagem foi escrita, como a pessoa provavelmente se sente?",
+    "alternativas": [
+      "Irritada e usando ironia (dizendo o contrário do que sente).",
+      "Genuinamente feliz com a prova surpresa.",
+      "Confusa e sem entender o que aconteceu.",
+      "Com medo de ir pra escola."
+    ],
+    "resposta": "Irritada e usando ironia (dizendo o contrário do que sente).",
+    "explicacao": "Ninguém 'adora' prova surpresa de verdade — o exagero ('melhor dia da minha vida') entrega que ela quer dizer o OPOSTO. Isso é ironia. Pra perceber, observe o tom exagerado e o contexto: as palavras são positivas, mas a situação é ruim. As entrelinhas valem mais que as palavras.",
+    "xp": 15
+  },
+  {
+    "id": "int-005",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 3,
+    "texto": "Às cinco da tarde, a avenida virava um rio parado de metal. Buzinas, motores quentes e ninguém saindo do lugar.",
+    "enunciado": "EFEITO DE SENTIDO: qual o efeito de chamar o trânsito de 'um rio parado de metal'?",
+    "alternativas": [
+      "Cria uma imagem (metáfora) do trânsito imenso e completamente travado.",
+      "Informa o nome científico dos carros.",
+      "Mostra que a avenida fica perto de um rio de verdade.",
+      "Indica que estava chovendo muito na cidade."
+    ],
+    "resposta": "Cria uma imagem (metáfora) do trânsito imenso e completamente travado.",
+    "explicacao": "'Rio parado de metal' é uma metáfora: compara o monte de carros parados a um rio que não corre. O efeito é fazer você VISUALIZAR o engarrafamento gigante e imóvel. Linguagem figurada não é pra ser lida ao pé da letra — ela cria imagem e emoção. Não tem rio nem chuva ali.",
+    "xp": 20
+  },
+  {
+    "id": "int-006",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 3,
+    "texto": "Ela esperou o sinal. Esperou a resposta. Esperou até o último aluno sair da sala. E nada.",
+    "enunciado": "EFEITO DE SENTIDO: por que o autor REPETE a palavra 'esperou' três vezes?",
+    "alternativas": [
+      "Para reforçar a sensação de espera longa e cansativa.",
+      "Por falta de outras palavras no vocabulário.",
+      "Para indicar que são três pessoas diferentes esperando.",
+      "Foi um erro de digitação do texto."
+    ],
+    "resposta": "Para reforçar a sensação de espera longa e cansativa.",
+    "explicacao": "Repetir de propósito (chama-se repetição) serve pra martelar uma ideia. As três vezes de 'esperou' fazem você SENTIR como aquela espera foi se arrastando. Escritor experiente repete pra criar ritmo e emoção, não por falta de palavra. O 'E nada' no fim aumenta a frustração.",
+    "xp": 20
+  },
+  {
+    "id": "int-007",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "completar",
+    "dificuldade": 2,
+    "texto": "Beber água parece bobeira, mas faz diferença enorme. Pouca água deixa a gente com dor de cabeça, cansado e sem concentração. O ideal é ter sempre uma garrafinha por perto e ir bebendo aos poucos.",
+    "enunciado": "Complete: a ideia central do texto é sobre ____ (escreva uma palavra).",
+    "resposta": "hidratação",
+    "explicacao": "O texto inteiro fala de beber água e o que acontece quando falta — isso é hidratação. (Respostas como 'água' também captam a ideia.) Resumir um texto em uma palavra obriga você a achar o núcleo. Se a palavra cabe do começo ao fim do texto, você achou a ideia central.",
+    "xp": 15
+  },
+  {
+    "id": "int-008",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "caca-pista",
+    "dificuldade": 2,
+    "texto": "A casa estava escura. Bia deu um passo, e as mãos dela tremiam. 'É só o vento', repetiu baixinho, tentando se convencer.",
+    "enunciado": "Cace a PISTA que prova que a personagem estava com medo. Clique no trecho certo:",
+    "alternativas": ["A casa estava escura", "as mãos dela tremiam", "repetiu baixinho"],
+    "resposta": "as mãos dela tremiam",
+    "explicacao": "A pista mais forte do medo é o corpo reagindo: 'as mãos dela tremiam'. A casa escura é o cenário (ajuda, mas não prova o medo dela), e 'repetiu baixinho' mostra que tentava se acalmar. Numa caça-pista, busque a evidência mais direta — o detalhe que só existe por causa daquele sentimento.",
+    "xp": 15
+  },
+  {
+    "id": "int-009",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "texto": "INGREDIENTES: 2 ovos, 1 xícara de farinha, meia xícara de açúcar.\nMODO DE FAZER: misture tudo, despeje na forma e leve ao forno por 30 minutos.",
+    "enunciado": "GÊNERO TEXTUAL: que tipo de texto é esse?",
+    "alternativas": [
+      "Uma receita culinária.",
+      "Uma notícia de jornal.",
+      "Um poema.",
+      "Uma propaganda."
+    ],
+    "resposta": "Uma receita culinária.",
+    "explicacao": "Cada gênero tem uma 'cara' própria. Receita tem duas marcas clássicas: lista de INGREDIENTES e o MODO DE FAZER com verbos de ordem (misture, despeje, leve). Reconhecer o gênero pelas pistas de estrutura te ajuda a saber o que esperar do texto antes mesmo de ler tudo.",
+    "xp": 15
+  },
+  {
+    "id": "int-010",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "arrastar",
+    "dificuldade": 3,
+    "texto": "Depois de muito treinar, Rafa entrou na quadra confiante. Antes do jogo, ele tinha quase desistido do time. No fim, levantou o troféu sorrindo.",
+    "enunciado": "Arraste os acontecimentos para a ORDEM em que aconteceram na história (do primeiro ao último):",
+    "alternativas": [
+      "Rafa quase desistiu do time",
+      "Rafa treinou muito e entrou confiante",
+      "Rafa levantou o troféu sorrindo"
+    ],
+    "resposta": [
+      "Rafa quase desistiu do time",
+      "Rafa treinou muito e entrou confiante",
+      "Rafa levantou o troféu sorrindo"
+    ],
+    "explicacao": "Cuidado: a ORDEM do texto não é a ordem dos fatos! O texto começa pelo treino, mas diz 'ANTES do jogo ele tinha quase desistido' — ou seja, isso veio primeiro na vida do Rafa. Palavras como 'antes', 'depois', 'no fim' são bússolas do tempo. Reorganize seguindo elas, não a ordem das frases.",
+    "xp": 20
+  },
+  {
+    "id": "int-011",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "texto": "Cansado de pilha que acaba na hora errada? Conheça a PowerMax: dura o triplo e nunca te deixa na mão. Compre hoje com 20% de desconto!",
+    "enunciado": "Qual é a INTENÇÃO (objetivo) principal desse texto?",
+    "alternativas": [
+      "Convencer você a comprar um produto.",
+      "Ensinar como fabricar pilhas em casa.",
+      "Contar uma história emocionante.",
+      "Informar dados científicos sobre energia."
+    ],
+    "resposta": "Convencer você a comprar um produto.",
+    "explicacao": "Todo texto tem uma intenção. Aqui as pistas gritam propaganda: elogia o produto, promete vantagem ('dura o triplo') e chama pra ação com desconto ('compre hoje'). Identificar a intenção te deixa esperto: você lê sabendo que o texto quer te vender algo, e não só informar.",
+    "xp": 15
+  },
+  {
+    "id": "int-012",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "caca-pista",
+    "dificuldade": 3,
+    "texto": "O novo celular tem tela de 6 polegadas e bateria de 5000 mAh. Sem dúvida, é o melhor aparelho já lançado. Ele foi anunciado na terça-feira.",
+    "enunciado": "Cace a OPINIÃO (e não um fato) escondida no texto. Clique no trecho certo:",
+    "alternativas": [
+      "tem tela de 6 polegadas",
+      "é o melhor aparelho já lançado",
+      "foi anunciado na terça-feira"
+    ],
+    "resposta": "é o melhor aparelho já lançado",
+    "explicacao": "Fato é o que dá pra checar (tela de 6 polegadas, anunciado na terça). Opinião é um julgamento pessoal — 'é o melhor' depende do gosto de cada um e não dá pra provar. A expressão 'sem dúvida' tenta disfarçar a opinião de fato. Separar fato de opinião é um superpoder pra não engolir tudo que leem.",
+    "xp": 20
+  },
+  {
+    "id": "int-013",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "completar",
+    "dificuldade": 2,
+    "texto": "Quando a porta abriu, Totó correu em círculos, abanou o rabo sem parar e não parava de pular na visita.",
+    "enunciado": "INFERÊNCIA: complete a conclusão com uma palavra. Deu pra entender que o cachorro estava ____.",
+    "resposta": "feliz",
+    "explicacao": "O texto não escreve 'o cachorro estava feliz', mas as pistas entregam: correr em círculos, abanar o rabo e pular são sinais clássicos de alegria de cachorro. Inferir é exatamente isso — somar as pistas e chegar na conclusão que o autor deixou implícita. (Respostas como 'animado' ou 'contente' também valem.)",
+    "xp": 15
+  },
+  {
+    "id": "int-014",
+    "trilha": "interpretacao",
+    "habilidade": "leitura",
+    "tipo": "multipla",
+    "dificuldade": 3,
+    "texto": "O bilhete dizia: 'Parabéns pelo seu esforço gigante no projeto.' Mas ele sabia que não tinha feito quase nada. Releu a frase e sentiu o rosto esquentar.",
+    "enunciado": "EFEITO DE SENTIDO: o final mostra como ele se sentiu. O que a frase revela?",
+    "alternativas": [
+      "Ele ficou envergonhado por receber um elogio que não merecia.",
+      "Ele ficou com febre e por isso o rosto esquentou.",
+      "O projeto foi um sucesso total graças a ele.",
+      "O bilhete estava endereçado para outra pessoa."
+    ],
+    "resposta": "Ele ficou envergonhado por receber um elogio que não merecia.",
+    "explicacao": "'Sentiu o rosto esquentar' é uma forma de mostrar vergonha sem usar a palavra 'vergonha'. Junte com 'sabia que não tinha feito quase nada' e o sentido fica claro: o elogio não era merecido, e isso o constrangeu. Detalhes do corpo (rosto esquentando, mãos suando) costumam revelar emoções nas entrelinhas.",
+    "xp": 20
+  }
+]

@@ -1,0 +1,224 @@
+[
+  {
+    "id": "hi-001",
+    "trilha": "historia",
+    "habilidade": "EF08HI01",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "O Iluminismo foi um movimento de ideias do século XVIII. Qual valor os pensadores iluministas mais defendiam?",
+    "alternativas": [
+      "A obediência total ao rei e à Igreja",
+      "O uso da razão e da ciência para entender o mundo",
+      "O retorno aos costumes da Idade Média",
+      "A proibição de livros e escolas"
+    ],
+    "resposta": "O uso da razão e da ciência para entender o mundo",
+    "explicacao": "Os iluministas acreditavam que a RAZÃO (a capacidade de pensar e questionar) deveria guiar a sociedade, no lugar da tradição e da autoridade absoluta do rei e da Igreja. Por isso o período também é chamado de 'Século das Luzes'. Pensadores como Voltaire, Montesquieu e Rousseau abriram caminho para ideias de liberdade e direitos.",
+    "xp": 10
+  },
+  {
+    "id": "hi-002",
+    "trilha": "historia",
+    "habilidade": "EF08HI01",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "enunciado": "Montesquieu propôs uma ideia até hoje usada nas democracias. Qual é?",
+    "alternativas": [
+      "A divisão dos poderes em Executivo, Legislativo e Judiciário",
+      "O voto apenas para os nobres",
+      "A união de todos os poderes nas mãos do rei",
+      "O fim das leis escritas"
+    ],
+    "resposta": "A divisão dos poderes em Executivo, Legislativo e Judiciário",
+    "explicacao": "No livro 'O Espírito das Leis', Montesquieu defendeu a SEPARAÇÃO DOS PODERES para evitar que uma só pessoa concentrasse todo o controle e virasse um tirano. A ideia: cada poder vigia o outro. Hoje, presidente (Executivo), Congresso (Legislativo) e juízes (Judiciário) seguem esse modelo.",
+    "xp": 15
+  },
+  {
+    "id": "hi-003",
+    "trilha": "historia",
+    "habilidade": "EF08HI03",
+    "tipo": "completar",
+    "dificuldade": 1,
+    "enunciado": "Complete o lema da Revolução Francesa de 1789: 'Liberdade, Igualdade e ______.'",
+    "resposta": "Fraternidade",
+    "explicacao": "O lema 'Liberdade, Igualdade e Fraternidade' resumia o que o povo francês queria: liberdade contra o poder absoluto do rei, igualdade de direitos entre as pessoas (não só privilégios para nobres) e fraternidade, o senso de união entre os cidadãos. Esse lema ainda é o lema oficial da França.",
+    "xp": 10
+  },
+  {
+    "id": "hi-004",
+    "trilha": "historia",
+    "habilidade": "EF08HI03",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "enunciado": "A Revolução Francesa começou em 1789. Contra qual sistema o povo se revoltou principalmente?",
+    "alternativas": [
+      "Contra a república democrática",
+      "Contra o Antigo Regime, com rei absolutista e privilégios da nobreza e do clero",
+      "Contra a Revolução Industrial",
+      "Contra a independência dos Estados Unidos"
+    ],
+    "resposta": "Contra o Antigo Regime, com rei absolutista e privilégios da nobreza e do clero",
+    "explicacao": "No Antigo Regime, o rei tinha poder absoluto e a sociedade era dividida em ordens: clero e nobreza tinham privilégios (quase não pagavam impostos), enquanto o Terceiro Estado (povo, comerciantes, trabalhadores) sustentava tudo. A revolta contra essa injustiça levou à queda da Bastilha em 14 de julho de 1789.",
+    "xp": 15
+  },
+  {
+    "id": "hi-005",
+    "trilha": "historia",
+    "habilidade": "EF08HI02",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "Em 1776, treze colônias se separaram da Inglaterra e formaram um novo país. Qual?",
+    "alternativas": [
+      "Os Estados Unidos da América",
+      "O Canadá",
+      "O México",
+      "A Argentina"
+    ],
+    "resposta": "Os Estados Unidos da América",
+    "explicacao": "Em 4 de julho de 1776, as treze colônias inglesas na América do Norte declararam independência e fundaram os Estados Unidos. Elas se revoltaram porque pagavam impostos à Inglaterra mas não tinham representação nas decisões ('No taxation without representation'). As ideias iluministas de liberdade inspiraram esse movimento.",
+    "xp": 10
+  },
+  {
+    "id": "hi-006",
+    "trilha": "historia",
+    "habilidade": "EF08HI06",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "enunciado": "A Revolução Industrial começou na Inglaterra no século XVIII. Qual invenção foi símbolo dessa transformação?",
+    "alternativas": [
+      "A máquina a vapor",
+      "O computador",
+      "A imprensa de Gutenberg",
+      "O telefone celular"
+    ],
+    "resposta": "A máquina a vapor",
+    "explicacao": "A máquina a vapor (aperfeiçoada por James Watt) permitiu mover teares e locomotivas usando a força do vapor, no lugar da força humana ou animal. Isso fez a produção nas fábricas explodir. A Revolução Industrial mudou o trabalho, encheu as cidades de operários e criou a divisão entre quem era dono da fábrica e quem vendia sua mão de obra.",
+    "xp": 15
+  },
+  {
+    "id": "hi-007",
+    "trilha": "historia",
+    "habilidade": "EF08HI06",
+    "tipo": "caca-pista",
+    "dificuldade": 3,
+    "enunciado": "Encontre a PISTA que descreve uma consequência social da Revolução Industrial para os trabalhadores.",
+    "alternativas": [
+      "Jornadas longas e baixos salários nas fábricas",
+      "Fim de todas as cidades",
+      "Volta do trabalho no campo medieval"
+    ],
+    "resposta": "Jornadas longas e baixos salários nas fábricas",
+    "explicacao": "Com as fábricas, muita gente saiu do campo para as cidades em busca de emprego. Mas as condições eram duríssimas: jornadas de 14 a 16 horas, salários baixos e até trabalho infantil. Essa exploração fez surgir os primeiros sindicatos e movimentos operários, que lutavam por melhores direitos.",
+    "xp": 20
+  },
+  {
+    "id": "hi-008",
+    "trilha": "historia",
+    "habilidade": "EF08HI09",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "Em 1808, a família real portuguesa fugiu para o Brasil. Por que ela veio para cá?",
+    "alternativas": [
+      "Para fazer turismo nas praias do Rio",
+      "Porque o exército de Napoleão estava invadindo Portugal",
+      "Porque o Brasil já era independente",
+      "Para abolir a escravidão"
+    ],
+    "resposta": "Porque o exército de Napoleão estava invadindo Portugal",
+    "explicacao": "Napoleão Bonaparte mandou suas tropas invadirem Portugal porque os portugueses não obedeceram ao bloqueio econômico contra a Inglaterra. Para não serem presos, a família real e a corte (cerca de 15 mil pessoas) atravessaram o oceano e se instalaram no Rio de Janeiro em 1808. Com isso, o Brasil deixou de ser só colônia e virou sede do reino.",
+    "xp": 10
+  },
+  {
+    "id": "hi-009",
+    "trilha": "historia",
+    "habilidade": "EF08HI09",
+    "tipo": "completar",
+    "dificuldade": 2,
+    "enunciado": "Ao chegar ao Brasil em 1808, Dom João VI fez uma medida econômica importante: a ______ dos portos às nações amigas (complete a palavra que significa 'tornar livre o comércio').",
+    "resposta": "abertura",
+    "explicacao": "A 'Abertura dos Portos às Nações Amigas' (1808) permitiu que o Brasil comerciasse diretamente com outros países, principalmente a Inglaterra, e não só com Portugal como antes. Foi um passo enorme: a colônia ganhou autonomia econômica e essa mudança ajudou a preparar o caminho para a independência.",
+    "xp": 15
+  },
+  {
+    "id": "hi-010",
+    "trilha": "historia",
+    "habilidade": "EF08HI10",
+    "tipo": "multipla",
+    "dificuldade": 1,
+    "enunciado": "Quem proclamou a Independência do Brasil em 7 de setembro de 1822?",
+    "alternativas": [
+      "Dom Pedro I",
+      "Tiradentes",
+      "Getúlio Vargas",
+      "Dom João VI"
+    ],
+    "resposta": "Dom Pedro I",
+    "explicacao": "Dom Pedro I, filho de Dom João VI, declarou a independência às margens do rio Ipiranga, em São Paulo, no episódio conhecido como 'o Grito do Ipiranga'. Portugal queria que o Brasil voltasse a ser colônia controlada, e Dom Pedro decidiu romper. Ele se tornou o primeiro imperador do Brasil.",
+    "xp": 10
+  },
+  {
+    "id": "hi-011",
+    "trilha": "historia",
+    "habilidade": "EF08HI10",
+    "tipo": "arrastar",
+    "dificuldade": 2,
+    "enunciado": "Arraste as palavras para formar a frase histórica atribuída a Dom Pedro I em 1822.",
+    "alternativas": [
+      "Independência",
+      "ou",
+      "Morte"
+    ],
+    "resposta": [
+      "Independência",
+      "ou",
+      "Morte"
+    ],
+    "explicacao": "'Independência ou Morte!' foi o grito de Dom Pedro I às margens do rio Ipiranga, em 7 de setembro de 1822. A frase mostrava que não havia mais volta: ou o Brasil se tornava um país livre, ou se lutaria por isso. Esse momento ficou eternizado no famoso quadro de Pedro Américo.",
+    "xp": 15
+  },
+  {
+    "id": "hi-012",
+    "trilha": "historia",
+    "habilidade": "EF08HI12",
+    "tipo": "multipla",
+    "dificuldade": 2,
+    "enunciado": "O período do Segundo Reinado (1840-1889) foi marcado pelo governo de qual imperador?",
+    "alternativas": [
+      "Dom Pedro II",
+      "Dom Pedro I",
+      "Dom João VI",
+      "Marechal Deodoro"
+    ],
+    "resposta": "Dom Pedro II",
+    "explicacao": "Dom Pedro II assumiu o trono ainda jovem, com apenas 14 anos, no chamado 'Golpe da Maioridade' (1840), encerrando o conturbado Período Regencial. Seu governo, o Segundo Reinado, durou quase 50 anos e foi marcado pela economia do café, pelas ferrovias, pela Guerra do Paraguai e pelos debates sobre o fim da escravidão.",
+    "xp": 15
+  },
+  {
+    "id": "hi-013",
+    "trilha": "historia",
+    "habilidade": "EF08HI16",
+    "tipo": "multipla",
+    "dificuldade": 3,
+    "enunciado": "Durante o Império, pessoas escravizadas resistiram de várias formas. Os quilombos eram:",
+    "alternativas": [
+      "Comunidades formadas por pessoas que fugiam da escravidão",
+      "Fazendas de café do governo",
+      "Escolas para filhos da nobreza",
+      "Navios que traziam mais escravizados"
+    ],
+    "resposta": "Comunidades formadas por pessoas que fugiam da escravidão",
+    "explicacao": "Os quilombos eram comunidades organizadas por pessoas que fugiam da escravidão e resistiam à opressão. O mais famoso foi o Quilombo dos Palmares, liderado por Zumbi. A resistência negra teve muitas formas: fugas, revoltas, quilombos e a luta cultural e religiosa para manter viva a própria identidade.",
+    "xp": 20
+  },
+  {
+    "id": "hi-014",
+    "trilha": "historia",
+    "habilidade": "EF08HI16",
+    "tipo": "completar",
+    "dificuldade": 2,
+    "enunciado": "Complete: a Lei ______, assinada pela Princesa Isabel em 13 de maio de 1888, aboliu oficialmente a escravidão no Brasil.",
+    "resposta": "Áurea",
+    "explicacao": "A Lei Áurea (1888) declarou extinta a escravidão no Brasil, último país das Américas a abolir esse sistema. Mas a lei não garantiu terra, emprego ou educação à população negra recém-libertada, que continuou enfrentando exclusão. Por isso a luta por igualdade seguiu — e segue — depois da abolição. Leis anteriores, como a do Ventre Livre (1871) e a dos Sexagenários (1885), já haviam preparado esse caminho aos poucos.",
+    "xp": 15
+  }
+]
