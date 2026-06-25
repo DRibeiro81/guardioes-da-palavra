@@ -262,6 +262,66 @@ export function stopMusic(): void {
   stopMusicNodes();
 }
 
+// --- relógio do timer (tique-taque em loop) ---------------------------------
+
+let tickTimer: ReturnType<typeof setInterval> | null = null;
+let tickGain: GainNode | null = null;
+let tickIsTock = false; // alterna tick (agudo) / tock (um tom abaixo)
+
+// Um "click" mecânico de relógio: transiente bem curto com decaimento rápido.
+// Mistura um tom alto (corpo metálico) com um harmônico grave, sem cauda longa,
+// para soar seco como ponteiro — urgente mas discreto.
+function clockClick(): void {
+  if (muted) return; // mutou no meio do loop: silencia sem matar o timer
+  const a = ensureAudio();
+  if (!a || !tickGain) return;
+  const [c] = a;
+  const t = c.currentTime;
+  // tock um pouco mais grave que o tick, para dar o "tique-taque"
+  const base = tickIsTock ? 1500 : 1850;
+  tickIsTock = !tickIsTock;
+  tone(c, tickGain, base, t, 0.035, "square", 0.5);
+  tone(c, tickGain, base * 0.5, t, 0.03, "triangle", 0.28);
+}
+
+// Inicia o tique-taque em loop. Idempotente: se já está tocando, não duplica.
+// Respeita o mute global (a flag é checada a cada click; ao desmutar volta a
+// soar sozinho, sem reiniciar o loop).
+export function startTick(): void {
+  const a = ensureAudio();
+  if (!a) return; // sem contexto/gesto ainda; chamador pode re-tentar
+  const [c, out] = a;
+  if (tickTimer) return; // já tocando
+  if (!tickGain) {
+    tickGain = c.createGain();
+    tickGain.gain.value = 0.22; // presente mas não estridente
+    tickGain.connect(out);
+  }
+  tickIsTock = false;
+  clockClick();
+  tickTimer = setInterval(clockClick, 500); // 1 tique-taque por segundo
+}
+
+// Para o loop e zera o interval (sem vazar timers).
+export function stopTick(): void {
+  if (tickTimer) {
+    clearInterval(tickTimer);
+    tickTimer = null;
+  }
+}
+
+// Tempo esgotado: dois tons graves macios descendo, nada agressivo.
+export function playTimeout(): void {
+  if (muted) return;
+  const a = ensureAudio();
+  if (!a) return;
+  const [c, out] = a;
+  const t = c.currentTime;
+  tone(c, out, 392.0, t, 0.28, "sine", 0.2); // G4
+  tone(c, out, 261.63, t + 0.16, 0.5, "sine", 0.2); // C4, assentando suave
+  tone(c, out, 130.81, t + 0.16, 0.5, "triangle", 0.12); // base grave discreta
+}
+
 // --- destravar áudio no 1º gesto do usuário (autoplay policy) ---------------
 
 let gestureHooked = false;

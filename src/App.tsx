@@ -58,7 +58,7 @@ export default function App() {
   const [confettiFire, setConfettiFire] = useState(0);
   const [flash, setFlash] = useState<{ tipo: "ok" | "erro"; k: number } | null>(null);
   const [levelUp, setLevelUp] = useState<{ nivel: number; k: number } | null>(null);
-  const [xpFly, setXpFly] = useState<{ val: number; k: number } | null>(null);
+  const [xpFly, setXpFly] = useState<{ val: number; selo: string | null; k: number } | null>(null);
   const [mascote, setMascote] = useState<EstadoMascote>("neutro");
   const [mascoteFala, setMascoteFala] = useState<string | undefined>(undefined);
   const fxKey = useRef(0);
@@ -111,25 +111,34 @@ export default function App() {
     setMascoteFala("Bora, Guardião! 💪");
   }
 
-  function responder(acertou: boolean) {
+  function responder(acertou: boolean, segundosRestantes: number) {
     const ex = porId.get(fila[pos]);
     if (!ex) return;
     const antes = progresso;
 
+    // Bônus de velocidade: pontos = base + round(base * segRest/60). Só no acerto.
+    const seg = Math.max(0, Math.min(60, segundosRestantes));
+    const bonus = acertou ? Math.round(ex.xp * (seg / 60)) : 0;
+    const ganho = ex.xp + bonus; // XP total da questão quando acerta
+    // Selo de rapidez: >=55s "VOANDO!", >=45s "RÁPIDO!". Burst extra no topo.
+    const selo = acertou ? (seg >= 55 ? "VOANDO!" : seg >= 45 ? "RÁPIDO!" : null) : null;
+
     if (acertou) {
       playCorrect();
-      const novoXp = antes.xp + ex.xp;
+      const novoXp = antes.xp + ganho;
       const novoNivel = nivelPorXp(novoXp);
       const subiuNivel = novoNivel > antes.nivel;
       const novoStreak = antes.streak + 1;
 
-      setGanhoXp(ex.xp);
+      setGanhoXp(ganho);
       const k = ++fxKey.current;
       setConfettiFire((f) => f + 1);
+      // burst extra de confete quando o bônus é alto (selo) — sem exagero
+      if (selo) setConfettiFire((f) => f + 1);
       setFlash({ tipo: "ok", k });
-      setXpFly({ val: ex.xp, k });
+      setXpFly({ val: ganho, selo, k });
       setMascote("comemorando");
-      setMascoteFala("Mandou bem! ✨");
+      setMascoteFala(selo ? `${selo} Voando baixo! ⚡` : "Mandou bem! ✨");
 
       if (subiuNivel) {
         playLevelUp();
@@ -147,7 +156,7 @@ export default function App() {
 
     setProgresso((p) => {
       if (acertou) {
-        const novoXp = p.xp + ex.xp;
+        const novoXp = p.xp + ganho;
         const novoStreak = p.streak + 1;
         return {
           ...p,
@@ -248,6 +257,7 @@ export default function App() {
       {xpFly && (
         <div className="xp-fly" key={"xp" + xpFly.k}>
           +{xpFly.val} XP ⭐
+          {xpFly.selo && <span className="xp-selo">{xpFly.selo}</span>}
         </div>
       )}
 

@@ -1,11 +1,17 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Exercicio } from "../types";
 import { conferir, embaralharPorChave } from "../engine";
 import { playClick } from "../sound";
+import { startTick, stopTick, playTimeout } from "../timerSound";
+
+// Tempo por pergunta. Começa quando o exercício aparece.
+const DURACAO = 60; // segundos
+const URGENCIA = 15; // a partir daqui: tique-taque + vermelho pulsando
 
 type Props = {
   exercicio: Exercicio;
-  onResponder: (acertou: boolean) => void;
+  // segundosRestantes alimenta o bônus de velocidade na App (0 no timeout).
+  onResponder: (acertou: boolean, segundosRestantes: number) => void;
   onProximo: () => void;
 };
 
@@ -41,6 +47,58 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
   const [ordem, setOrdem] = useState<string[]>([]); // sequência montada (arrastar)
   const [resultado, setResultado] = useState<null | boolean>(null);
 
+  // ---- TIMER ----
+  const [restante, setRestante] = useState(DURACAO); // segundos (fracionário p/ barra suave)
+  const [esgotou, setEsgotou] = useState(false); // 0s: tempo acabou
+  const restanteRef = useRef(DURACAO); // valor preciso no momento da resposta
+  const tickAtivoRef = useRef(false); // se o tique-taque já está tocando
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Para o tique-taque SEMPRE (acerto, erro, timeout, desmontar). Idempotente.
+  function pararTick() {
+    if (tickAtivoRef.current) {
+      tickAtivoRef.current = false;
+      stopTick();
+    }
+  }
+  function limparTimer() {
+    if (intervalRef.current !== null) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }
+
+  // Conta o tempo. O componente é remontado por pergunta (key na App), então
+  // este effect roda 1x por questão: inicia no mount, limpa no unmount.
+  useEffect(() => {
+    const inicio = Date.now();
+    intervalRef.current = setInterval(() => {
+      const rest = Math.max(0, DURACAO - (Date.now() - inicio) / 1000);
+      restanteRef.current = rest;
+      setRestante(rest);
+      // reta final: liga o relógio (uma vez) e deixa a barra pulsar vermelho
+      if (rest <= URGENCIA && !tickAtivoRef.current) {
+        tickAtivoRef.current = true;
+        startTick();
+      }
+      // tempo esgotado: trata como ERRADA, sem bônus, revela explicação
+      if (rest <= 0) {
+        limparTimer();
+        pararTick();
+        playTimeout();
+        setEsgotou(true);
+        setResultado(false);
+        onResponder(false, 0);
+      }
+    }, 200);
+    return () => {
+      // saída por desmontar/trocar de pergunta: nunca vaza interval nem som
+      limparTimer();
+      pararTick();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [exercicio.id]);
+
   const tipo = exercicio.tipo;
   const ehArrastar = tipo === "arrastar";
   const ehCacaPista = tipo === "caca-pista";
@@ -60,6 +118,9 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
     setTexto("");
     setOrdem([]);
     setResultado(null);
+    setEsgotou(false);
+    setRestante(DURACAO);
+    restanteRef.current = DURACAO;
   }, [exercicio.id]);
 
   const respondido = resultado !== null;
@@ -83,6 +144,10 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
 
   function enviar() {
     if (!podeEnviar) return;
+    // saída por resposta: congela o cronômetro e corta o tique-taque
+    limparTimer();
+    pararTick();
+    const seg = restanteRef.current;
     const escolha: string | string[] = ehCompletar
       ? texto
       : ehArrastar
@@ -90,7 +155,7 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
         : (escolhaUnica as string);
     const acertou = conferir(exercicio, escolha);
     setResultado(acertou);
-    onResponder(acertou);
+    onResponder(acertou, seg);
   }
 
   // classe de uma alternativa de escolha única (multipla / caca-pista)
@@ -118,8 +183,31 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
     ? exercicio.resposta.join("  →  ")
     : exercicio.resposta;
 
+  // ---- visual do timer ----
+  const pct = Math.max(0, Math.min(100, (restante / DURACAO) * 100));
+  const corTimer = restante > 30 ? "verde" : restante > URGENCIA ? "amarelo" : "vermelho";
+  const urgente = restante <= URGENCIA && !respondido; // pulsa só enquanto corre
+  const segMostra = Math.max(0, Math.ceil(restante));
+
   return (
     <div className={"exercicio" + (resultado === false ? " shake" : "")}>
+      <div
+        className={
+          "timer" +
+          " timer-" +
+          corTimer +
+          (urgente ? " timer-urgente" : "") +
+          (respondido ? " timer-parado" : "")
+        }
+        role="timer"
+        aria-label={`Tempo restante: ${segMostra} segundos`}
+      >
+        <div className="timer-barra">
+          <div className="timer-fill" style={{ width: `${pct}%` }} />
+        </div>
+        <span className="timer-num">⏱ {segMostra}s</span>
+      </div>
+
       <div className="exercicio-tags">
         <span className="tag tag-habilidade">{exercicio.habilidade}</span>
         <span className="tag tag-tipo">{rotuloTipo(tipo)}</span>
@@ -253,8 +341,15 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
       ) : (
         <div className={"feedback " + (resultado ? "ok" : "nao")}>
           <div className="feedback-titulo">
-            {resultado ? "✅ Mandou bem, Guardião!" : "🔁 Quase! Isso volta pra revisão."}
+            {resultado
+              ? "✅ Mandou bem, Guardião!"
+              : esgotou
+                ? "⏰ O tempo acabou! Sem pressa, bora aprender."
+                : "🔁 Quase! Isso volta pra revisão."}
           </div>
+          {esgotou && (
+            <div className="feedback-tempo">Você levou os {DURACAO}s todos nesta. 🐢→🚀</div>
+          )}
           {!resultado && (
             <div className="feedback-gabarito">
               Resposta certa: <strong>{gabaritoTexto}</strong>
