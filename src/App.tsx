@@ -51,6 +51,8 @@ export default function App() {
   const [pos, setPos] = useState(0);
   // quantas vezes cada id foi errado nesta sessão (controla o intervalo de revisão)
   const [errosSessao, setErrosSessao] = useState<Record<string, number>>({});
+  // erros consecutivos na sessão -> alimenta a RAIVA do mago (2+ seguidos)
+  const [errosSeguidos, setErrosSeguidos] = useState(0);
   const [ganhoXp, setGanhoXp] = useState<number | null>(null);
 
   // ---- estado de juice ----
@@ -106,9 +108,10 @@ export default function App() {
     setFila(novaFila);
     setPos(0);
     setErrosSessao({});
+    setErrosSeguidos(0);
     setGanhoXp(null);
-    setMascote("pensando");
-    setMascoteFala("Bora, Guardião! 💪");
+    setMascote("neutro");
+    setMascoteFala("Bora, aprendiz! 💪");
   }
 
   function responder(acertou: boolean, segundosRestantes: number) {
@@ -137,8 +140,9 @@ export default function App() {
       if (selo) setConfettiFire((f) => f + 1);
       setFlash({ tipo: "ok", k });
       setXpFly({ val: ganho, selo, k });
-      setMascote("comemorando");
-      setMascoteFala(selo ? `${selo} Voando baixo! ⚡` : "Mandou bem! ✨");
+      setErrosSeguidos(0);
+      setMascote("feliz");
+      setMascoteFala(selo ? `${selo} Magia pura! ⚡` : "Mandou bem, aprendiz! ✨");
 
       if (subiuNivel) {
         playLevelUp();
@@ -150,8 +154,20 @@ export default function App() {
       playWrong();
       const k = ++fxKey.current;
       setFlash({ tipo: "erro", k });
-      setMascote("triste");
-      setMascoteFala("Quase! Isso volta pra revisão. 🔁");
+      // tempo esgotado (seg<=0) ou 2+ erros seguidos -> mago com RAIVA (bravo,
+      // mas encorajador). Erro isolado -> triste.
+      const timeout = seg <= 0;
+      const seguidos = errosSeguidos + 1;
+      setErrosSeguidos(seguidos);
+      if (timeout || seguidos >= 2) {
+        setMascote("raiva");
+        setMascoteFala(
+          timeout ? "Foco, aprendiz! O tempo voou! ⏳" : "Respira e concentra! 🔥",
+        );
+      } else {
+        setMascote("triste");
+        setMascoteFala("Quase! Isso volta pra revisão. 🔁");
+      }
     }
 
     setProgresso((p) => {
@@ -205,7 +221,7 @@ export default function App() {
 
   function proximo() {
     setGanhoXp(null);
-    setMascote("pensando");
+    setMascote("neutro");
     setMascoteFala(undefined);
     if (pos + 1 >= fila.length) {
       // fim da sessão -> volta pra seleção de trilha
@@ -291,6 +307,11 @@ export default function App() {
               exercicio={exercicioAtual}
               onResponder={responder}
               onProximo={proximo}
+              onUrgencia={() => {
+                // reta final do cronômetro: o mago fica IMPACIENTE
+                setMascote("impaciente");
+                setMascoteFala("Anda, aprendiz! O tempo tá acabando! ⏳");
+              }}
             />
           </main>
           {ganhoXp !== null && (

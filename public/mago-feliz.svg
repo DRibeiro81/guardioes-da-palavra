@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="hatF" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8b6bff"/><stop offset="1" stop-color="#5b3ce0"/>
+    </linearGradient>
+    <linearGradient id="robeF" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+  <!-- sparkles -->
+  <path d="M22 30 l2 5 5 2 -5 2 -2 5 -2-5 -5-2 5-2 z" fill="#ffe66d"/>
+  <path d="M100 64 l1.6 4 4 1.6 -4 1.6 -1.6 4 -1.6-4 -4-1.6 4-1.6 z" fill="#ffe66d"/>
+  <!-- staff raised, glowing -->
+  <line x1="94" y1="40" x2="90" y2="108" stroke="#8b5a2b" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="95" cy="34" r="10" fill="#ffe66d"/>
+  <circle cx="95" cy="34" r="4.5" fill="#fff7cc"/>
+  <!-- robe -->
+  <path d="M34 112 Q60 82 86 112 Z" fill="url(#robeF)"/>
+  <!-- face -->
+  <circle cx="58" cy="62" r="24" fill="#ffd9b3"/>
+  <!-- rosy cheeks -->
+  <circle cx="44" cy="68" r="4" fill="#ff9aa2" opacity="0.7"/>
+  <circle cx="72" cy="68" r="4" fill="#ff9aa2" opacity="0.7"/>
+  <!-- beard -->
+  <path d="M40 64 Q58 104 76 64 Q70 80 58 82 Q46 80 40 64 Z" fill="#f8fafc"/>
+  <!-- hat -->
+  <path d="M58 6 L34 50 L82 50 Z" fill="url(#hatF)"/>
+  <ellipse cx="58" cy="50" rx="28" ry="7" fill="#5b3ce0"/>
+  <path d="M52 28 l2 4 4 1 -4 2 -1 4 -2-4 -4-1 4-2 z" fill="#ffe66d"/>
+  <!-- happy eyes (^_^) -->
+  <path d="M45 60 q5 -6 10 0" stroke="#27324a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M61 60 q5 -6 10 0" stroke="#27324a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- big smile -->
+  <path d="M48 70 q10 10 20 0 q-10 4 -20 0 z" fill="#a3582b"/>
+  <path d="M48 70 q10 9 20 0" stroke="#7a3f1d" stroke-width="2" fill="none"/>
+</svg>
