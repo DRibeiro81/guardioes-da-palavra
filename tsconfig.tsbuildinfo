@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/engine.ts","./src/main.tsx","./src/storage.ts","./src/types.ts","./src/components/exercise.tsx","./src/components/hud.tsx","./src/components/trackselect.tsx"],"version":"5.9.3"}
+{"root":["./src/app.tsx","./src/engine.ts","./src/main.tsx","./src/sound.ts","./src/storage.ts","./src/types.ts","./src/vite-env.d.ts","./src/components/confetti.tsx","./src/components/exercise.tsx","./src/components/hud.tsx","./src/components/mascote.tsx","./src/components/trackselect.tsx"],"version":"5.9.3"}

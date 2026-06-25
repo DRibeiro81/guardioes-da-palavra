@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Exercicio, Trilha, Progresso } from "./types";
 import bancoBruto from "../content/exercicios.json";
 import matematicaBruto from "../content/matematica.json";
@@ -6,9 +6,20 @@ import historiaBruto from "../content/historia.json";
 import inglesBruto from "../content/ingles.json";
 import { carregarProgresso, salvarProgresso, resetarProgresso, nivelPorXp } from "./storage";
 import { montarFila, reagendarErro, type Fila } from "./engine";
+import {
+  playCorrect,
+  playWrong,
+  playLevelUp,
+  playStreak,
+  setMuted as somSetMuted,
+  isMuted as somIsMuted,
+  resumeOnFirstGesture,
+} from "./sound";
 import HUD from "./components/HUD";
 import TrackSelect from "./components/TrackSelect";
 import Exercise from "./components/Exercise";
+import Confetti from "./components/Confetti";
+import Mascote, { type EstadoMascote } from "./components/Mascote";
 
 // Banco único: Português (verbos + interpretação) + as 3 matérias novas.
 // Cada matéria vive em seu próprio JSON; aqui só concatenamos.
@@ -19,6 +30,20 @@ const banco = [
   ...(inglesBruto as Exercicio[]),
 ];
 
+// partículas leves do fundo (geradas uma vez)
+const PARTICULAS = Array.from({ length: 16 }, (_, i) => {
+  const r = (n: number) => (Math.sin((i + 1) * 51.3 + n) + 1) / 2;
+  return {
+    left: r(1) * 100,
+    size: 4 + r(2) * 10,
+    dur: 12 + r(3) * 16,
+    delay: r(4) * 12,
+    drift: (r(5) * 80 - 40).toFixed(0),
+  };
+});
+
+const MILESTONES = new Set([3, 5, 10]);
+
 export default function App() {
   const [progresso, setProgresso] = useState<Progresso>(() => carregarProgresso());
   const [trilha, setTrilha] = useState<Trilha | null>(null);
@@ -27,6 +52,21 @@ export default function App() {
   // quantas vezes cada id foi errado nesta sessão (controla o intervalo de revisão)
   const [errosSessao, setErrosSessao] = useState<Record<string, number>>({});
   const [ganhoXp, setGanhoXp] = useState<number | null>(null);
+
+  // ---- estado de juice ----
+  const [muted, setMutedState] = useState(() => somIsMuted());
+  const [confettiFire, setConfettiFire] = useState(0);
+  const [flash, setFlash] = useState<{ tipo: "ok" | "erro"; k: number } | null>(null);
+  const [levelUp, setLevelUp] = useState<{ nivel: number; k: number } | null>(null);
+  const [xpFly, setXpFly] = useState<{ val: number; k: number } | null>(null);
+  const [mascote, setMascote] = useState<EstadoMascote>("neutro");
+  const [mascoteFala, setMascoteFala] = useState<string | undefined>(undefined);
+  const fxKey = useRef(0);
+
+  // destrava o áudio no 1º gesto (política de autoplay)
+  useEffect(() => {
+    resumeOnFirstGesture();
+  }, []);
 
   // mapa id -> exercício pra lookup rápido
   const porId = useMemo(() => {
@@ -47,6 +87,12 @@ export default function App() {
     salvarProgresso(progresso);
   }, [progresso]);
 
+  function toggleMute() {
+    const novo = !muted;
+    somSetMuted(novo);
+    setMutedState(novo);
+  }
+
   function iniciarTrilha(t: Trilha) {
     const daTrilha = banco.filter((e) => e.trilha === t);
     // injeta itens marcados pra revisão (repetição espaçada entre sessões)
@@ -61,11 +107,43 @@ export default function App() {
     setPos(0);
     setErrosSessao({});
     setGanhoXp(null);
+    setMascote("pensando");
+    setMascoteFala("Bora, Guardião! 💪");
   }
 
   function responder(acertou: boolean) {
     const ex = porId.get(fila[pos]);
     if (!ex) return;
+    const antes = progresso;
+
+    if (acertou) {
+      playCorrect();
+      const novoXp = antes.xp + ex.xp;
+      const novoNivel = nivelPorXp(novoXp);
+      const subiuNivel = novoNivel > antes.nivel;
+      const novoStreak = antes.streak + 1;
+
+      setGanhoXp(ex.xp);
+      const k = ++fxKey.current;
+      setConfettiFire((f) => f + 1);
+      setFlash({ tipo: "ok", k });
+      setXpFly({ val: ex.xp, k });
+      setMascote("comemorando");
+      setMascoteFala("Mandou bem! ✨");
+
+      if (subiuNivel) {
+        playLevelUp();
+        setLevelUp({ nivel: novoNivel, k });
+      } else if (MILESTONES.has(novoStreak)) {
+        playStreak(novoStreak);
+      }
+    } else {
+      playWrong();
+      const k = ++fxKey.current;
+      setFlash({ tipo: "erro", k });
+      setMascote("triste");
+      setMascoteFala("Quase! Isso volta pra revisão. 🔁");
+    }
 
     setProgresso((p) => {
       if (acertou) {
@@ -91,9 +169,7 @@ export default function App() {
       };
     });
 
-    if (acertou) {
-      setGanhoXp(ex.xp);
-    } else {
+    if (!acertou) {
       // repetição espaçada dentro da sessão: reinsere mais à frente na fila
       const tentativas = (errosSessao[ex.id] ?? 0) + 1;
       setErrosSessao((m) => ({ ...m, [ex.id]: tentativas }));
@@ -101,8 +177,27 @@ export default function App() {
     }
   }
 
+  // limpa overlays efêmeros (flash / xp / level up)
+  useEffect(() => {
+    if (!flash) return;
+    const t = setTimeout(() => setFlash(null), 650);
+    return () => clearTimeout(t);
+  }, [flash]);
+  useEffect(() => {
+    if (!xpFly) return;
+    const t = setTimeout(() => setXpFly(null), 1050);
+    return () => clearTimeout(t);
+  }, [xpFly]);
+  useEffect(() => {
+    if (!levelUp) return;
+    const t = setTimeout(() => setLevelUp(null), 1900);
+    return () => clearTimeout(t);
+  }, [levelUp]);
+
   function proximo() {
     setGanhoXp(null);
+    setMascote("pensando");
+    setMascoteFala(undefined);
     if (pos + 1 >= fila.length) {
       // fim da sessão -> volta pra seleção de trilha
       setTrilha(null);
@@ -114,6 +209,8 @@ export default function App() {
   function sair() {
     setTrilha(null);
     setGanhoXp(null);
+    setMascote("neutro");
+    setMascoteFala(undefined);
   }
 
   function reset() {
@@ -125,9 +222,48 @@ export default function App() {
 
   return (
     <div className="app">
+      {/* fundo animado + partículas (decorativo) */}
+      <div className="fundo-anim" aria-hidden="true">
+        {PARTICULAS.map((p, i) => (
+          <span
+            key={i}
+            className="particula"
+            style={{
+              left: `${p.left}%`,
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              animationDuration: `${p.dur}s`,
+              animationDelay: `${p.delay}s`,
+              // @ts-expect-error custom prop p/ CSS
+              "--drift": `${p.drift}px`,
+            }}
+          />
+        ))}
+      </div>
+
+      <Confetti fire={confettiFire} />
+
+      {flash && <div className={"flash-overlay " + flash.tipo} key={flash.k} />}
+
+      {xpFly && (
+        <div className="xp-fly" key={"xp" + xpFly.k}>
+          +{xpFly.val} XP ⭐
+        </div>
+      )}
+
+      {levelUp && (
+        <div className="levelup" key={"lv" + levelUp.k}>
+          <div className="levelup-card">
+            <div className="levelup-emoji">🎉</div>
+            <div className="levelup-titulo">Subiu de nível!</div>
+            <div className="levelup-sub">Nível {levelUp.nivel} 🛡️</div>
+          </div>
+        </div>
+      )}
+
       {trilha && exercicioAtual ? (
         <>
-          <HUD progresso={progresso} onSair={sair} />
+          <HUD progresso={progresso} muted={muted} onToggleMute={toggleMute} onSair={sair} />
           <main className="palco">
             <div className="progresso-sessao">
               <div
@@ -136,6 +272,9 @@ export default function App() {
                   width: `${Math.round((pos / Math.max(1, fila.length)) * 100)}%`,
                 }}
               />
+            </div>
+            <div className="mascote-palco">
+              <Mascote estado={mascote} fala={mascoteFala} size={84} />
             </div>
             <Exercise
               key={fila[pos] + "-" + pos}

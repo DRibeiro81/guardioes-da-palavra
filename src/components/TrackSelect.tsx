@@ -1,4 +1,31 @@
 import type { Trilha, Progresso } from "../types";
+import { playClick } from "../sound";
+import Mascote from "./Mascote";
+
+function reduzMovimento(): boolean {
+  try {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  } catch {
+    return false;
+  }
+}
+
+// ripple + clique sonoro (degrada p/ só som em reduced-motion)
+function fx(e: React.MouseEvent<HTMLButtonElement>) {
+  playClick();
+  if (reduzMovimento()) return;
+  const btn = e.currentTarget;
+  const rect = btn.getBoundingClientRect();
+  const d = Math.max(btn.clientWidth, btn.clientHeight);
+  const span = document.createElement("span");
+  span.className = "ripple";
+  span.style.width = span.style.height = `${d}px`;
+  span.style.left = `${e.clientX - rect.left - d / 2}px`;
+  span.style.top = `${e.clientY - rect.top - d / 2}px`;
+  btn.querySelector(".ripple")?.remove();
+  btn.appendChild(span);
+  setTimeout(() => span.remove(), 600);
+}
 
 type Props = {
   progresso: Progresso;
@@ -72,17 +99,27 @@ export default function TrackSelect({
           <span>⭐ {progresso.xp} XP</span>
           <span>🔥 {progresso.melhorStreak} melhor ofensiva</span>
         </div>
+        <Mascote
+          estado="feliz"
+          fala="Oi! Escolhe uma trilha que eu vou contigo 🦉"
+          size={104}
+          className="mascote-hero"
+        />
       </div>
 
       <h2 className="secao-titulo">Escolha sua trilha</h2>
       <div className="trilhas">
-        {TRILHAS.map((t) => {
+        {TRILHAS.map((t, i) => {
           const total = contagem[t.id] ?? 0;
           return (
           <button
             key={t.id}
             className={"card-trilha " + t.cor}
-            onClick={() => onEscolher(t.id)}
+            style={{ animationDelay: `${i * 0.07}s` }}
+            onClick={(e) => {
+              fx(e);
+              onEscolher(t.id);
+            }}
             disabled={total === 0}
           >
             <span className="card-emoji">{t.emoji}</span>

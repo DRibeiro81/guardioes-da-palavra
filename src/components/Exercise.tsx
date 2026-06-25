@@ -1,12 +1,38 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Exercicio } from "../types";
 import { conferir, embaralharPorChave } from "../engine";
+import { playClick } from "../sound";
 
 type Props = {
   exercicio: Exercicio;
   onResponder: (acertou: boolean) => void;
   onProximo: () => void;
 };
+
+function reduzMovimento(): boolean {
+  try {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  } catch {
+    return false;
+  }
+}
+
+// ripple + clique sonoro num único handler. Degrada (só som) em reduced-motion.
+function fx(e: React.MouseEvent<HTMLButtonElement>) {
+  playClick();
+  if (reduzMovimento()) return;
+  const btn = e.currentTarget;
+  const rect = btn.getBoundingClientRect();
+  const d = Math.max(btn.clientWidth, btn.clientHeight);
+  const span = document.createElement("span");
+  span.className = "ripple";
+  span.style.width = span.style.height = `${d}px`;
+  span.style.left = `${e.clientX - rect.left - d / 2}px`;
+  span.style.top = `${e.clientY - rect.top - d / 2}px`;
+  btn.querySelector(".ripple")?.remove();
+  btn.appendChild(span);
+  setTimeout(() => span.remove(), 600);
+}
 
 export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
   // estado de resposta para esta questão
@@ -93,7 +119,7 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
     : exercicio.resposta;
 
   return (
-    <div className="exercicio">
+    <div className={"exercicio" + (resultado === false ? " shake" : "")}>
       <div className="exercicio-tags">
         <span className="tag tag-habilidade">{exercicio.habilidade}</span>
         <span className="tag tag-tipo">{rotuloTipo(tipo)}</span>
@@ -116,7 +142,10 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
               key={alt}
               className={classeAlt(alt, "alternativa")}
               disabled={respondido}
-              onClick={() => setEscolhaUnica(alt)}
+              onClick={(e) => {
+                fx(e);
+                setEscolhaUnica(alt);
+              }}
             >
               {alt}
             </button>
@@ -134,7 +163,10 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
                 key={alt}
                 className={classeAlt(alt, "trecho")}
                 disabled={respondido}
-                onClick={() => setEscolhaUnica(alt)}
+                onClick={(e) => {
+                  fx(e);
+                  setEscolhaUnica(alt);
+                }}
               >
                 {alt}
               </button>
@@ -155,7 +187,10 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
                   key={chip + idx}
                   className={classeFila(idx)}
                   disabled={respondido}
-                  onClick={() => removerDaFila(idx)}
+                  onClick={(e) => {
+                    fx(e);
+                    removerDaFila(idx);
+                  }}
                   title={respondido ? "" : "Clique pra remover"}
                 >
                   <span className="fila-num">{idx + 1}</span>
@@ -170,7 +205,14 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
                 {chips
                   .filter((c) => !ordem.includes(c))
                   .map((chip) => (
-                    <button key={chip} className="chip" onClick={() => adicionarChip(chip)}>
+                    <button
+                      key={chip}
+                      className="chip"
+                      onClick={(e) => {
+                        fx(e);
+                        adicionarChip(chip);
+                      }}
+                    >
                       {chip}
                     </button>
                   ))}
@@ -198,7 +240,14 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
       )}
 
       {!respondido ? (
-        <button className="btn-principal" disabled={!podeEnviar} onClick={enviar}>
+        <button
+          className="btn-principal"
+          disabled={!podeEnviar}
+          onClick={(e) => {
+            fx(e);
+            enviar();
+          }}
+        >
           Confirmar
         </button>
       ) : (
@@ -212,7 +261,13 @@ export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
             </div>
           )}
           <p className="feedback-explicacao">{exercicio.explicacao}</p>
-          <button className="btn-principal" onClick={onProximo}>
+          <button
+            className="btn-principal"
+            onClick={(e) => {
+              fx(e);
+              onProximo();
+            }}
+          >
             Próximo →
           </button>
         </div>
