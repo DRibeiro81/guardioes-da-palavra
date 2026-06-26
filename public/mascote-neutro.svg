@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9a6bff"/>
+      <stop offset="1" stop-color="#4a23a0"/>
+    </linearGradient>
+    <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe6ff"/>
+      <stop offset="1" stop-color="#cdb6ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- book (guardian of the book) -->
+  <g>
+    <rect x="62" y="196" width="116" height="26" rx="6" fill="#2f9e8f"/>
+    <rect x="70" y="190" width="100" height="22" rx="4" fill="#ffffff"/>
+    <line x1="120" y1="190" x2="120" y2="212" stroke="#cdb6ff" stroke-width="3"/>
+    <rect x="62" y="196" width="116" height="26" rx="6" fill="none" stroke="#1f7a6e" stroke-width="2"/>
+  </g>
+
+  <!-- ear tufts -->
+  <path d="M74 58 L92 92 L60 86 Z" fill="#4a23a0"/>
+  <path d="M166 58 L148 92 L180 86 Z" fill="#4a23a0"/>
+
+  <!-- body -->
+  <ellipse cx="120" cy="138" rx="74" ry="82" fill="url(#body)"/>
+  <!-- belly -->
+  <ellipse cx="120" cy="152" rx="44" ry="56" fill="url(#belly)"/>
+
+  <!-- wings -->
+  <path d="M48 120 q-14 34 8 64 q14 4 22 -8 q-18 -26 -10 -58 z" fill="#5b30b8"/>
+  <path d="M192 120 q14 34 -8 64 q-14 4 -22 -8 q18 -26 10 -58 z" fill="#5b30b8"/>
+
+  <!-- eyes -->
+  <circle cx="96" cy="120" r="32" fill="#fffefb"/>
+  <circle cx="144" cy="120" r="32" fill="#fffefb"/>
+  <circle cx="96" cy="120" r="14" fill="#2a1758"/>
+  <circle cx="144" cy="120" r="14" fill="#2a1758"/>
+  <circle cx="101" cy="115" r="5" fill="#ffffff"/>
+  <circle cx="149" cy="115" r="5" fill="#ffffff"/>
+
+  <!-- brows (neutral) -->
+  <path d="M70 92 q26 -8 50 0" fill="none" stroke="#3a1d7a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M120 92 q26 -8 50 0" fill="none" stroke="#3a1d7a" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- beak -->
+  <path d="M120 132 L132 146 L120 156 L108 146 Z" fill="#ffb13b" stroke="#e8902a" stroke-width="2"/>
+
+  <!-- feet -->
+  <path d="M100 214 l-6 10 M100 214 l0 11 M100 214 l6 10" stroke="#ffb13b" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M140 214 l-6 10 M140 214 l0 11 M140 214 l6 10" stroke="#ffb13b" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

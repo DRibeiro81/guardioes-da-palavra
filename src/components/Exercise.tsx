@@ -13,8 +13,6 @@ type Props = {
   // segundosRestantes alimenta o bônus de velocidade na App (0 no timeout).
   onResponder: (acertou: boolean, segundosRestantes: number) => void;
   onProximo: () => void;
-  // chamado uma vez ao entrar na reta final (<=15s sem ter respondido)
-  onUrgencia?: () => void;
 };
 
 function reduzMovimento(): boolean {
@@ -42,7 +40,7 @@ function fx(e: React.MouseEvent<HTMLButtonElement>) {
   setTimeout(() => span.remove(), 600);
 }
 
-export default function Exercise({ exercicio, onResponder, onProximo, onUrgencia }: Props) {
+export default function Exercise({ exercicio, onResponder, onProximo }: Props) {
   // estado de resposta para esta questão
   const [escolhaUnica, setEscolhaUnica] = useState<string | null>(null);
   const [texto, setTexto] = useState("");
@@ -82,7 +80,6 @@ export default function Exercise({ exercicio, onResponder, onProximo, onUrgencia
       if (rest <= URGENCIA && !tickAtivoRef.current) {
         tickAtivoRef.current = true;
         startTick();
-        onUrgencia?.(); // avisa a App pro mago ficar impaciente
       }
       // tempo esgotado: trata como ERRADA, sem bônus, revela explicação
       if (rest <= 0) {

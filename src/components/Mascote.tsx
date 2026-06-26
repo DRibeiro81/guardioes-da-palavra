@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 
-// O mascote agora é um MAGO com emoções reativas ao momento do aluno.
 export type EstadoMascote =
   | "neutro"
   | "feliz"
+  | "comemorando"
   | "triste"
-  | "impaciente"
-  | "raiva";
+  | "pensando";
 
 type Props = {
   estado: EstadoMascote;
@@ -16,21 +15,22 @@ type Props = {
   className?: string;
 };
 
-// Emoji de fallback caso o SVG (public/mago-*.svg) não carregue — assim a tela
-// nunca quebra por imagem faltando.
+// Emoji de fallback caso o SVG do squad Ilustração (public/mascote-*.svg) ainda
+// não exista — assim o build e a tela nunca quebram por imagem faltando.
 const FALLBACK: Record<EstadoMascote, string> = {
-  neutro: "🧙",
-  feliz: "😄",
-  triste: "😢",
-  impaciente: "😤",
-  raiva: "😠",
+  neutro: "🦉",
+  feliz: "🦉",
+  comemorando: "🎉",
+  triste: "🥺",
+  pensando: "🤔",
 };
 
 export default function Mascote({ estado, fala, size = 96, className }: Props) {
-  const src = `${import.meta.env.BASE_URL}mago-${estado}.svg`;
+  const src = `${import.meta.env.BASE_URL}mascote-${estado}.svg`;
   const [erro, setErro] = useState(false);
 
-  // ao trocar de estado, tenta carregar o SVG do novo estado de novo
+  // ao trocar de estado, tenta de novo carregar o SVG (o squad pode ter
+  // entregado o arquivo nesse meio tempo)
   useEffect(() => {
     setErro(false);
   }, [estado]);
@@ -49,7 +49,7 @@ export default function Mascote({ estado, fala, size = 96, className }: Props) {
         ) : (
           <img
             src={src}
-            alt={"Mago " + estado}
+            alt={"Mascote " + estado}
             width={size}
             height={size}
             onError={() => setErro(true)}
