@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9a6bff"/>
+      <stop offset="1" stop-color="#4a23a0"/>
+    </linearGradient>
+    <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe6ff"/>
+      <stop offset="1" stop-color="#cdb6ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- steam puffs -->
+  <circle cx="52" cy="50" r="7" fill="#cdb6ff" opacity="0.8"/>
+  <circle cx="40" cy="40" r="5" fill="#cdb6ff" opacity="0.6"/>
+  <circle cx="188" cy="50" r="7" fill="#cdb6ff" opacity="0.8"/>
+  <circle cx="200" cy="40" r="5" fill="#cdb6ff" opacity="0.6"/>
+
+  <!-- book -->
+  <g>
+    <rect x="62" y="196" width="116" height="26" rx="6" fill="#2f9e8f"/>
+    <rect x="70" y="190" width="100" height="22" rx="4" fill="#ffffff"/>
+    <line x1="120" y1="190" x2="120" y2="212" stroke="#cdb6ff" stroke-width="3"/>
+    <rect x="62" y="196" width="116" height="26" rx="6" fill="none" stroke="#1f7a6e" stroke-width="2"/>
+  </g>
+
+  <!-- ear tufts (sharper) -->
+  <path d="M72 52 L92 92 L58 84 Z" fill="#4a23a0"/>
+  <path d="M168 52 L148 92 L182 84 Z" fill="#4a23a0"/>
+
+  <!-- body -->
+  <ellipse cx="120" cy="138" rx="74" ry="82" fill="url(#body)"/>
+  <ellipse cx="120" cy="152" rx="44" ry="56" fill="url(#belly)"/>
+
+  <!-- flushed cheeks -->
+  <ellipse cx="80" cy="150" rx="13" ry="9" fill="#ff7a8a" opacity="0.55"/>
+  <ellipse cx="160" cy="150" rx="13" ry="9" fill="#ff7a8a" opacity="0.55"/>
+
+  <!-- wings raised (fists up) -->
+  <path d="M48 116 q-16 26 0 52 q14 8 24 -4 q-18 -22 -14 -50 z" fill="#5b30b8"/>
+  <path d="M192 116 q16 26 0 52 q-14 8 -24 -4 q18 -22 14 -50 z" fill="#5b30b8"/>
+
+  <!-- eyes (glaring) -->
+  <circle cx="96" cy="122" r="30" fill="#fffefb"/>
+  <circle cx="144" cy="122" r="30" fill="#fffefb"/>
+  <circle cx="98" cy="126" r="14" fill="#2a1758"/>
+  <circle cx="142" cy="126" r="14" fill="#2a1758"/>
+  <circle cx="102" cy="122" r="4" fill="#ffffff"/>
+  <circle cx="146" cy="122" r="4" fill="#ffffff"/>
+
+  <!-- angry V brows pressing down -->
+  <path d="M66 96 L118 116" fill="none" stroke="#2a1255" stroke-width="7" stroke-linecap="round"/>
+  <path d="M174 96 L122 116" fill="none" stroke="#2a1255" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- beak open shouting + gritted line -->
+  <path d="M120 134 L133 150 L120 162 L107 150 Z" fill="#ffb13b" stroke="#e8902a" stroke-width="2"/>
+  <path d="M106 172 h28" fill="none" stroke="#3a1d7a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M114 168 v8 M122 168 v8 M128 168 v8" stroke="#3a1d7a" stroke-width="2"/>
+
+  <!-- feet -->
+  <path d="M100 214 l-6 10 M100 214 l0 11 M100 214 l6 10" stroke="#ffb13b" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M140 214 l-6 10 M140 214 l0 11 M140 214 l6 10" stroke="#ffb13b" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

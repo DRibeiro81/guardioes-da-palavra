@@ -1008,6 +1008,23 @@ body {
   0%, 100% { transform: translateY(0) rotate(0); }
   50% { transform: translateY(2px) rotate(-2deg); }
 }
+/* impaciente: balança rápido, como quem bate o pé */
+.mascote-impaciente {
+  animation: mascoteImpaciente 0.4s ease-in-out infinite;
+}
+@keyframes mascoteImpaciente {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+/* raiva: tremor curto e nervoso */
+.mascote-raiva {
+  animation: mascoteRaiva 0.18s linear infinite;
+}
+@keyframes mascoteRaiva {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 1px); }
+  75% { transform: translate(2px, -1px); }
+}
 .mascote-fala {
   position: relative;
   background: #fff;

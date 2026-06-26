@@ -5,7 +5,9 @@ export type EstadoMascote =
   | "feliz"
   | "comemorando"
   | "triste"
-  | "pensando";
+  | "pensando"
+  | "impaciente"
+  | "raiva";
 
 type Props = {
   estado: EstadoMascote;
@@ -23,6 +25,8 @@ const FALLBACK: Record<EstadoMascote, string> = {
   comemorando: "🎉",
   triste: "🥺",
   pensando: "🤔",
+  impaciente: "😤",
+  raiva: "😠",
 };
 
 export default function Mascote({ estado, fala, size = 96, className }: Props) {

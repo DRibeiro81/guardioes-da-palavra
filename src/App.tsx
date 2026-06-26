@@ -51,6 +51,8 @@ export default function App() {
   const [pos, setPos] = useState(0);
   // quantas vezes cada id foi errado nesta sessão (controla o intervalo de revisão)
   const [errosSessao, setErrosSessao] = useState<Record<string, number>>({});
+  // erros consecutivos na sessão -> alimenta a RAIVA da coruja (2+ seguidos)
+  const [errosSeguidos, setErrosSeguidos] = useState(0);
   const [ganhoXp, setGanhoXp] = useState<number | null>(null);
 
   // ---- estado de juice ----
@@ -106,6 +108,7 @@ export default function App() {
     setFila(novaFila);
     setPos(0);
     setErrosSessao({});
+    setErrosSeguidos(0);
     setGanhoXp(null);
     setMascote("pensando");
     setMascoteFala("Bora, Guardião! 💪");
@@ -137,6 +140,7 @@ export default function App() {
       if (selo) setConfettiFire((f) => f + 1);
       setFlash({ tipo: "ok", k });
       setXpFly({ val: ganho, selo, k });
+      setErrosSeguidos(0);
       setMascote("comemorando");
       setMascoteFala(selo ? `${selo} Voando baixo! ⚡` : "Mandou bem! ✨");
 
@@ -150,8 +154,20 @@ export default function App() {
       playWrong();
       const k = ++fxKey.current;
       setFlash({ tipo: "erro", k });
-      setMascote("triste");
-      setMascoteFala("Quase! Isso volta pra revisão. 🔁");
+      // tempo esgotado (seg<=0) ou 2+ erros seguidos -> coruja com RAIVA (brava,
+      // mas encorajadora). Erro isolado -> triste.
+      const timeout = seg <= 0;
+      const seguidos = errosSeguidos + 1;
+      setErrosSeguidos(seguidos);
+      if (timeout || seguidos >= 2) {
+        setMascote("raiva");
+        setMascoteFala(
+          timeout ? "Foco, Guardião! O tempo voou! ⏳" : "Respira e concentra! 🔥",
+        );
+      } else {
+        setMascote("triste");
+        setMascoteFala("Quase! Isso volta pra revisão. 🔁");
+      }
     }
 
     setProgresso((p) => {
@@ -291,6 +307,11 @@ export default function App() {
               exercicio={exercicioAtual}
               onResponder={responder}
               onProximo={proximo}
+              onUrgencia={() => {
+                // reta final do cronômetro: a coruja fica IMPACIENTE
+                setMascote("impaciente");
+                setMascoteFala("Anda, Guardião! O tempo tá acabando! ⏳");
+              }}
             />
           </main>
           {ganhoXp !== null && (
