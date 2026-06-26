@@ -49,7 +49,7 @@ export default function Mascote({ estado, fala, size = 96, className }: Props) {
         ) : (
           <img
             src={src}
-            alt={"Mago " + estado}
+            alt={"Mascote " + estado}
             width={size}
             height={size}
             onError={() => setErro(true)}
