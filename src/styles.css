@@ -1142,14 +1142,3 @@ body {
     background-position: 0 center;
   }
 }
-
-/* crédito do personagem (licença CC BY 4.0) — discreto no rodapé */
-.creditos {
-  text-align: center;
-  padding: 14px 12px 22px;
-  font-size: 11px;
-  color: #9aa3c0;
-  opacity: 0.75;
-}
-.creditos a { color: #b9a6ff; text-decoration: none; }
-.creditos a:hover { text-decoration: underline; }

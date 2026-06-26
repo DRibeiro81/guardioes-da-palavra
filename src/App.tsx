@@ -328,13 +328,6 @@ export default function App() {
           onResetar={reset}
         />
       )}
-      <footer className="creditos">
-        Personagem por{" "}
-        <a href="https://www.dicebear.com" target="_blank" rel="noreferrer noopener">
-          DiceBear
-        </a>{" "}
-        — estilo “Big Smile” de Ashley Seo (CC BY 4.0)
-      </footer>
     </div>
   );
 }
